@@ -1,1 +1,1 @@
-# IS_EventComp_Project
+# EVENTCOMP
