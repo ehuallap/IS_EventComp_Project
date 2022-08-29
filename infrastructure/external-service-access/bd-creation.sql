@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE DATABASE event_manager;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,7 +34,7 @@ USE `eventos_cs`;
 
 CREATE TABLE `persona_registrada` (
 	`id_registrado` INT NOT NULL,
-    `persona` VARCHAR(50) NOT NULL,
+    `nombre` VARCHAR(50) NOT NULL,
     `email` VARCHAR(50) NOT NULL,
     `password` VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -89,6 +90,9 @@ CREATE TABLE `evento` (
 	`titulo` VARCHAR(100) NOT NULL,
 	`tema` VARCHAR(200) NOT NULL,
 	`descripcion` TEXT NOT NULL,
+    `fecha` DATETIME NOT NULL,
+    `plataforma` VARCHAR(20) NOT NULL,
+    `link_acceso` VARCHAR(50) NOT NULL,
 	`id_administrador` INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -178,39 +182,39 @@ ALTER TABLE `evento_participante`
 -- Filtros para la tabla `administrador`
 --
 ALTER TABLE `administrador`
-	ADD CONSTRAINT `id_administrador` FOREIGN KEY (`id_administrador`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+	ADD FOREIGN KEY (`id_administrador`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
   
 --
 -- Filtros para la tabla `participante`
 --
 ALTER TABLE `participante`
-	ADD CONSTRAINT `id_participante` FOREIGN KEY (`id_participante`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+	ADD FOREIGN KEY (`id_participante`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `participante`
 --
 ALTER TABLE `ponente`
-	ADD CONSTRAINT `id_ponente` FOREIGN KEY (`id_ponente`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+	ADD FOREIGN KEY (`id_ponente`) REFERENCES `persona_registrada` (`id_registrado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `evento`
 --
 ALTER TABLE `evento`
-  ADD CONSTRAINT `id_administrador` FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`id_administrador`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD FOREIGN KEY (`id_administrador`) REFERENCES `administrador` (`id_administrador`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `evento_ponente`
 --
 ALTER TABLE `evento_ponente`
-  ADD CONSTRAINT `id_evento` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `id_ponente` FOREIGN KEY (`id_ponente`) REFERENCES `ponente` (`id_ponente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD FOREIGN KEY (`id_ponente`) REFERENCES `ponente` (`id_ponente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `participante_concurso`
 --
 ALTER TABLE `evento_participante`
-  ADD CONSTRAINT `id_evento` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `id_participante` FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id_participante`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD FOREIGN KEY (`id_participante`) REFERENCES `participante` (`id_participante`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 COMMIT;
 
