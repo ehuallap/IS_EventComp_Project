@@ -7,16 +7,19 @@ class Participant(Registered_person):
         super().__init__(self, id, name, email, password)
         self.universidad = universidad
         self.ciclo = ciclo
-    
+    # Metodo para obtener la universidad de la persona (ENCAPSULAMIENTO)
     def getUniversidad(self):
         return self.universidad
     
+    # Metodo para obtenter el ciclo de la persona (ENCAPSULAMIENTO)
     def getCiclo(self):
         return self.ciclo
     
+    # Metodo para asignar la universidad de la persona (ENCAPSULAMIENTO)
     def setUniversidad(self, universidad):
         self.universidad = universidad
     
+    # Metodo para obtener el ciclo de la persona (ENCAPSULAMIENTO)
     def setCiclo(self, ciclo):
         self.ciclo = ciclo
     
