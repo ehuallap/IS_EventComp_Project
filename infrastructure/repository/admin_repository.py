@@ -57,3 +57,6 @@ class Administrator_repository(DbConnection.Model, Administrator):
         except Exception as e:
             print(e)
             return None
+
+admin = Administrator_repository()
+print(admin.getAll())

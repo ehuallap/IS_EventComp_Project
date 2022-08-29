@@ -11,7 +11,7 @@ from registered_person import Registered_person
 class Participant(Registered_person):
     # Constructor de la clase    
     def __init__(self, id, name, email, password, universidad, ciclo):
-        super().__init__(self, id, name, email, password)
+        Registered_person.__init__(self, id, name, email, password)
         self.universidad = universidad
         self.ciclo = ciclo
     

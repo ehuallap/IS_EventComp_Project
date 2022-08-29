@@ -11,7 +11,7 @@ from registered_person import Registered_person
 class Speaker(Registered_person):    
     # Constructor de la clase
     def __init__(self, id, name, email, password, ac_level, description, especialty, phone):
-        super().__init__(self, id, name, email, password)
+        Registered_person.__init__(self, id, name, email, password)
         self.academic_level = ac_level
         self.description = description
         self.especialty = especialty

@@ -12,7 +12,7 @@ class Administrator(Registered_person):
     # Constructor de la clase
     
     def __init__(self, id, name, email, password):
-        super().__init__(self, id, name, email, password)
+        Registered_person.__init__(self, id, name, email, password)
     
     def format(self):
         return {
