@@ -7,10 +7,6 @@ class Registered_person:
         self.email = email
         self.password = password
     
-    # Metodo para representar el objeto en una tupla
-    def __repr__(self):
-        return 'Registered: id: {}, name: {}, email: {}, password: {}'.format(self.id, self.name, self.email, self.password)
-    
     # Metodo para obtener el id de la persona (ENCAPSULAMIENTO)
     def getId(self):
         return self.id

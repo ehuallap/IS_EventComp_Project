@@ -1,61 +1,47 @@
+from registered_person import Registered_person
+
 # Creacion de la clase Speaker
-class Speaker:
+class Speaker(Registered_person):
     # Constructor de la clase
-    def __init__(self, id, name, email, password):
-        self.id = id
-        self.name = name
-        self.email = email
-        self.password = password
+    def __init__(self, id, name, email, password, ac_level, description, especialty, phone):
+        super().__init__(self, id, name, email, password)
+        self.academic_level = ac_level
+        self.description = description
+        self.especialty = especialty
+        self.phone = phone
     
-    # Metodo para representar el objeto en un diccionario
-    def __repr__(self):
-        return "<Speaker('%s','%s','%s','%s')>" % (self.id, self.name, self.email, self.password)
+    def getAcademicLevel(self):
+        return self.academic_level
     
-    # Metodo para representar el objeto en una tupla
-    def __str__(self):
-        return "Speaker [id=%s, name=%s, email=%s, password=%s]" % (self.id, self.name, self.email, self.password)
+    def getDescription(self):
+        return self.description
     
-    # Metodo para verificar speakers repetidos
-    def __eq__(self, other):
-        return self.id == other.id
+    def getEspecialty(self):
+        return self.especialty
     
-    # Metodo para obtener el id del speaker (ENCAPSULAMIENTO)
-    def getId(self):
-        return self.id
+    def getPhone(self):
+        return self.phone
     
-    # Metodo para obtener el nombre del speaker (ENCAPSULAMIENTO)
-    def getName(self):
-        return self.name
+    def setAcademicLevel(self, ac_level):
+        self.academic_level = ac_level
     
-    # Metodo para obtener el email del speaker (ENCAPSULAMIENTO)
-    def getEmail(self):
-        return self.email
+    def setDescription(self, description):
+        self.description = description
     
-    # Metodo para obtener el password del speaker (ENCAPSULAMIENTO)
-    def getPassword(self):
-        return self.password
+    def setEspecialty(self, especialty):
+        self.especialty = especialty
     
-    # Metodo para asignar el id del speaker (ENCAPSULAMIENTO)
-    def setId(self, id):
-        self.id = id
+    def setPhone(self, phone):
+        self.phone = phone
     
-    # Metodo para asignar el nombre del speaker (ENCAPSULAMIENTO)
-    def setName(self, name):
-        self.name = name
-    
-    # Metodo para asignar el email del speaker (ENCAPSULAMIENTO)
-    def setEmail(self, email):
-        self.email = email
-    
-    # Metodo para asignar el password del speaker (ENCAPSULAMIENTO)
-    def setPassword(self, password):
-        self.password = password
-    
-    # Metodo para obtener el objeto en formato JSON
     def format(self):
         return {
             'id': self.id,
             'name': self.name,
             'email': self.email,
-            'password': self.password
+            'password': self.password,
+            'academic_level': self.academic_level,
+            'description': self.description,
+            'especialty': self.especialty,
+            'phone': self.phone
         }

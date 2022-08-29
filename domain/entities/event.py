@@ -1,81 +1,72 @@
 # Creacion de la clase Event
 class Event:
     # Constructor de la clase
-    def __init__(self, id, name, description, date, place, administrator):
+    def __init__(self, id, title, theme, description, date_time, platform, access_link, id_administrator):
         self.id = id
-        self.name = name
+        self.title = title
+        self.theme = theme
         self.description = description
-        self.date = date
-        self.place = place
-        self.administrator = administrator
+        self.date_time = date_time
+        self.platform = platform
+        self.access_link = access_link
+        self.id_administrator = id_administrator
     
-    # Metodo para representar el objeto en un diccionario
-    def __repr__(self):
-        return "<Event('%s','%s','%s','%s','%s','%s')>" % (self.id, self.name, self.description, self.date, self.place, self.administrator)
-    
-    # Metodo para representar el objeto en una tupla
-    def __str__(self):
-        return "Event [id=%s, name=%s, description=%s, date=%s, place=%s, administrator=%s]" % (self.id, self.name, self.description, self.date, self.place, self.administrator)
-    
-    # Metodo para verificar eventos repetidos
-    def __eq__(self, other):
-        return self.id == other.id
-    
-    # Metodo para obtener el id del evento (ENCAPSULAMIENTO)
     def getId(self):
         return self.id
     
-    # Metodo para obtener el nombre del evento (ENCAPSULAMIENTO)
-    def getName(self):
-        return self.name
+    def getTitle(self):
+        return self.title
     
-    # Metodo para obtener la descripcion del evento (ENCAPSULAMIENTO)
+    def getTheme(self):
+        return self.theme
+    
     def getDescription(self):
         return self.description
     
-    # Metodo para obtener la fecha del evento (ENCAPSULAMIENTO)
-    def getDate(self):
-        return self.date
+    def getDateTime(self):
+        return self.date_time
     
-    # Metodo para obtener la ubicacion del evento (ENCAPSULAMIENTO)
-    def getPlace(self):
-        return self.place
+    def getPlatform(self):
+        return self.platform
     
-    # Metodo para obtener el administrador del evento (ENCAPSULAMIENTO)
-    def getAdministrator(self):
-        return self.administrator
+    def getAccessLink(self):
+        return self.access_link
     
-    # Metodo para asignar el id del evento (ENCAPSULAMIENTO)
+    def getIdAdministrator(self):
+        return self.id_administrator
+    
     def setId(self, id):
         self.id = id
     
-    # Metodo para asignar el nombre del evento (ENCAPSULAMIENTO)
-    def setName(self, name):
-        self.name = name
+    def setTitle(self, title):
+        self.title = title
     
-    # Metodo para asignar la descripcion del evento (ENCAPSULAMIENTO)
+    def setTheme(self, theme):
+        self.theme = theme
+    
     def setDescription(self, description):
         self.description = description
     
-    # Metodo para asignar la fecha del evento (ENCAPSULAMIENTO)
-    def setDate(self, date):
-        self.date = date
+    def setDateTime(self, date_time):
+        self.date_time = date_time
     
-    # Metodo para asignar la ubicacion del evento (ENCAPSULAMIENTO)
-    def setPlace(self, place):
-        self.place = place
-        
-    # Metodo para asignar el administrador del evento (ENCAPSULAMIENTO)
-    def setAdministrator(self, administrator):
-        self.administrator = administrator
+    def setPlatform(self, platform):
+        self.platform = platform
     
-    # Metodo para obtener el objeto en formato JSON
+    def setAccessLink(self, access_link):
+        self.access_link = access_link
+    
+    def setIdAdministrator(self, id_administrator):
+        self.id_administrator = id_administrator
+    
     def format(self):
         return {
             'id': self.id,
-            'name': self.name,
+            'title': self.title,
+            'theme': self.theme,
             'description': self.description,
-            'date': self.date,
-            'place': self.place,
-            'administrator': self.administrator
+            'date_time': self.date_time,
+            'platform': self.platform,
+            'access_link': self.access_link,
+            'id_administrator': self.id_administrator
         }
