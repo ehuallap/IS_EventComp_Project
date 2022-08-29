@@ -12,12 +12,9 @@ class Administrator_repository(DbConnection.Model, Administrator):
     __tablename__ = 'administrator'
     id = DbConnection.Column(DbConnection.Integer, primary_key=True)
     
-    def __init__(self):
-        Administrator.__init__(self)
-    
-    def __init__(self, id, name, email, password):
+    def __init__(self, id=0, name="", email="", password=""):
         Administrator.__init__(self, id, name, email, password)
-
+    
     def insert(self):
         try:
             DbConnection.session.add(self)

@@ -19,10 +19,7 @@ class Event_repository(DbConnection.Model, Event):
     access_link = DbConnection.Column(DbConnection.String(50), nullable=False)
     administrator_id = DbConnection.Column(DbConnection.Integer, nullable=False)
 
-    def __init__(self):
-        Event.__init__(self)
-
-    def __init__(self, id, title, theme, description, date_time, platform, access_link, administrator_id):
+    def __init__(self, id=0, title="", theme="", description="", date_time="", platform="", access_link="", administrator_id=0):
         Event.__init__(self, id, title, theme, description, date_time, platform, access_link, administrator_id)
 
     def insert(self):

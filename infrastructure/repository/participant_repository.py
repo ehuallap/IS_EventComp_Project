@@ -14,10 +14,7 @@ class Participant_repository(DbConnection.Model, Participant):
     universidad = DbConnection.Column(DbConnection.String(50), nullable=False)
     ciclo = DbConnection.Column(DbConnection.Integer, nullable=False)
 
-    def __init__(self):
-        Participant.__init__(self)
-
-    def __init__(self, id, name, email, password, universidad, ciclo):
+    def __init__(self, id=0, name="", email="", password="", universidad="", ciclo=0):
         Participant.__init__(self, id, name, email, password, universidad, ciclo)
 
     def insert(self):

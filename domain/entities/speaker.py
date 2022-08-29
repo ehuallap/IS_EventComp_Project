@@ -8,14 +8,7 @@ sys.path.append(str(package_root))
 from registered_person import Registered_person
 
 # Creacion de la clase Speaker
-class Speaker(Registered_person):
-    def __init__(self):
-        super().__init__(self)
-        self.academic_level = None
-        self.description = None
-        self.especialty = None
-        self.phone = None
-    
+class Speaker(Registered_person):    
     # Constructor de la clase
     def __init__(self, id, name, email, password, ac_level, description, especialty, phone):
         super().__init__(self, id, name, email, password)

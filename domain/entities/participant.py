@@ -9,16 +9,12 @@ from registered_person import Registered_person
 
 # Creacion de la clase Participante
 class Participant(Registered_person):
-    # Constructor de la clase
-    def __init__(self):
-        super().__init__(self)
-        self.universidad = None
-        self.ciclo = None
-    
+    # Constructor de la clase    
     def __init__(self, id, name, email, password, universidad, ciclo):
         super().__init__(self, id, name, email, password)
         self.universidad = universidad
         self.ciclo = ciclo
+    
     # Metodo para obtener la universidad de la persona (ENCAPSULAMIENTO)
     def getUniversidad(self):
         return self.universidad
