@@ -36,14 +36,6 @@ def get_event(id):
     event = event.get(id)
     return jsonify(event)
 
-@event_blueprint.route('/event/<int:id>', methods=['PUT'])
-@cross_origin()
-def update_event(id):
-    if not request.json:
-        abort(400)
-    event = event.update(id, request.json['name'], request.json['description'], request.json['date'], request.json['time'], request.json['location'], request.json['price'], request.json['image'])
-    return jsonify(event)
-
 @event_blueprint.route('/event/<int:id>', methods=['DELETE'])
 @cross_origin()
 def delete_event(id):

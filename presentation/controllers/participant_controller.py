@@ -12,7 +12,7 @@ from flask import Blueprint
 from flask_cors import cross_origin
 
 from infrastructure.repository.participant_repository import Participant_repository
-from domain.entities.participant import Participant
+
 participant_blueprint = Blueprint('participant_blueprint', __name__)
 participant = Participant_repository()
 
