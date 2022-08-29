@@ -12,10 +12,10 @@ from flask import abort
 from flask import Blueprint
 from flask_cors import cross_origin
 
-from infrastructure.repository.admin_repository import Admin_repository
+from infrastructure.repository.admin_repository import Administrator_repository
 
 admin_blueprint = Blueprint('admin_blueprint', __name__)
-admin = Admin_repository()
+admin = Administrator_repository
 
 @admin_blueprint.route('/admin', methods=['POST'])
 @cross_origin()

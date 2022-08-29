@@ -1,18 +1,18 @@
 from flask import Flask
-from flask import jsonify
-from flask import request
-from flask import abort
-from flask import make_response
 
 import sys
 from pathlib import Path
 
+file = Path(__file__).resolve()
+package_root = file.parents[1]
+sys.path.append(str(package_root))
+
 from infrastructure.repository.db_connection import setup_db
-from admin_controller import admin_blueprint
-from event_controller import event_blueprint
-from participant_controller import participant_blueprint
-from registered_controller import registered_blueprint
-from speaker_controller import speaker_blueprint
+from controllers.admin_controller import admin_blueprint
+from controllers.event_controller import event_blueprint
+from controllers.participant_controller import participant_blueprint
+from controllers.registered_controller import registered_blueprint
+from controllers.speaker_controller import speaker_blueprint
 
 file = Path(__file__).resolve()
 package_root = file.parents[2]

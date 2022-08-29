@@ -1,5 +1,11 @@
 # Creacion de la clase RegistredPerson
 class Registered_person:    
+    def __init__(self):
+        self.id = None
+        self.name = None
+        self.email = None
+        self.password = None
+    
     # Constructor de la clase
     def __init__(self, id, name, email, password):
         self.id = id

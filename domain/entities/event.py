@@ -1,5 +1,15 @@
 # Creacion de la clase Event
 class Event:
+    def __init__(self):
+        self.id = None
+        self.title = None
+        self.theme = None
+        self.description = None
+        self.date_time = None
+        self.platform = None
+        self.access_link = None
+        self.id_administrator = None
+    
     # Constructor de la clase
     def __init__(self, id, title, theme, description, date_time, platform, access_link, id_administrator):
         self.id = id

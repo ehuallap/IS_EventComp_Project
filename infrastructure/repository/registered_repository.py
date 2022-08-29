@@ -14,7 +14,10 @@ class Registered_repository(DbConnection.Model, Registered_person):
     name = DbConnection.Column(DbConnection.String(50), nullable=False)
     email = DbConnection.Column(DbConnection.String(50), nullable=False)
     password = DbConnection.Column(DbConnection.String(50), nullable=False)
-    
+
+    def __init__(self):
+        Registered_person.__init__(self)
+
     def __init__(self, id, name, email, password):
         Registered_person.__init__(self, id, name, email, password)
 

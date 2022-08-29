@@ -12,6 +12,9 @@ class Administrator_repository(DbConnection.Model, Administrator):
     __tablename__ = 'administrator'
     id = DbConnection.Column(DbConnection.Integer, primary_key=True)
     
+    def __init__(self):
+        Administrator.__init__(self)
+    
     def __init__(self, id, name, email, password):
         Administrator.__init__(self, id, name, email, password)
 

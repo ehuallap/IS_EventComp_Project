@@ -14,7 +14,7 @@ from flask_cors import cross_origin
 from infrastructure.repository.speaker_repository import Speaker_repository
 
 speaker_blueprint = Blueprint('speaker_blueprint', __name__)
-speaker = Speaker_repository()
+speaker = Speaker_repository
 
 @speaker_blueprint.route('/speaker', methods=['POST'])
 @cross_origin()

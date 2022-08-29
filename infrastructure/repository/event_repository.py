@@ -18,7 +18,10 @@ class Event_repository(DbConnection.Model, Event):
     platform = DbConnection.Column(DbConnection.String(20), nullable=False)
     access_link = DbConnection.Column(DbConnection.String(50), nullable=False)
     administrator_id = DbConnection.Column(DbConnection.Integer, nullable=False)
-    
+
+    def __init__(self):
+        Event.__init__(self)
+
     def __init__(self, id, title, theme, description, date_time, platform, access_link, administrator_id):
         Event.__init__(self, id, title, theme, description, date_time, platform, access_link, administrator_id)
 

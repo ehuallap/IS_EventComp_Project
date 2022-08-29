@@ -14,6 +14,9 @@ class Speaker_repository(DbConnection.Model, Speaker):
     description = DbConnection.Column(DbConnection.String(100), nullable=False)
     especiality = DbConnection.Column(DbConnection.String(50), nullable=False)
     phone = DbConnection.Column(DbConnection.String(50), nullable=False)
+
+    def __init__(self):
+        Speaker.__init__(self)
     
     def __init__(self, id, name, email, password, ac_level, description, especiality, phone):
         Speaker.__init__(self, id, name, email, password, ac_level, description, especiality, phone)

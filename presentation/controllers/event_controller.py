@@ -14,7 +14,7 @@ from flask_cors import cross_origin
 from infrastructure.repository.event_repository import Event_repository
 
 event_blueprint = Blueprint('event_blueprint', __name__)
-event = Event_repository()
+event = Event_repository
 
 @event_blueprint.route('/event', methods=['POST'])
 @cross_origin()
