@@ -1,12 +1,12 @@
 import sys
 from pathlib import Path
 
-from infrastructure.repository.db_connection import DbConnection
-from domain.entities.registered_person import Registered_person
-
 file = Path(__file__).resolve()
 package_root = file.parents[2]
 sys.path.append(str(package_root))
+
+from infrastructure.repository.db_connection import DbConnection
+from domain.entities.registered_person import Registered_person
 
 class Registered_repository(DbConnection.Model, Registered_person):
     __tablename__ = 'registred_person'

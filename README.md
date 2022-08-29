@@ -20,3 +20,5 @@ class Registered_repository(DbConnection.Model, Registered_person):
     email = DbConnection.Column(DbConnection.String(50), nullable=False)
     password = DbConnection.Column(DbConnection.String(50), nullable=False)
 ```
+Aporte de cada integrante:
+* Juan Pablo: aajsdnasd 
