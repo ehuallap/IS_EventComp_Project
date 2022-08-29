@@ -21,7 +21,8 @@ speaker = Speaker_repository
 def create_speaker():
     if not request.json:
         abort(400)
-    speaker = speaker.create(request.json['name'], request.json['email'], request.json['password'], request.json['event_id'], request.json['universidad'], request.json['ciclo'])
+    speaker = Speaker_repository(request.json['id'], request.json['name'], request.json['email'], request.json['password'])
+    speaker.insert()
     return jsonify(speaker)
 
 @speaker_blueprint.route('/speaker', methods=['GET'])

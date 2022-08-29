@@ -1,4 +1,3 @@
-from re import S
 import sys
 from pathlib import Path
 
@@ -22,7 +21,8 @@ registered = Registered_repository
 def create_registered():
     if not request.json:
         abort(400)
-    registered = registered.create(request.json['name'], request.json['email'], request.json['password'], request.json['event_id'], request.json['universidad'], request.json['ciclo'])
+    registered = Registered_repository(request.json['id'], request.json['name'], request.json['email'], request.json['password'])
+    registered.insert()
     return jsonify(registered)
 
 @registered_blueprint.route('/registered', methods=['GET'])

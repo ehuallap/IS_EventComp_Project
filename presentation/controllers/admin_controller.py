@@ -1,4 +1,3 @@
-from re import S
 import sys
 from pathlib import Path
 
@@ -22,7 +21,8 @@ admin = Administrator_repository
 def create_admin():
     if not request.json:
         abort(400)
-    admin = admin.create(request.json['name'], request.json['email'], request.json['password'], request.json['event_id'], request.json['universidad'], request.json['ciclo'])
+    admin = Administrator_repository(request.json['id'], request.json['name'], request.json['email'], request.json['password'])
+    admin = admin.insert()
     return jsonify(admin)
 
 @admin_blueprint.route('/admin', methods=['GET'])

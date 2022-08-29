@@ -21,7 +21,8 @@ event = Event_repository
 def create_event():
     if not request.json:
         abort(400)
-    event = event.create(request.json['name'], request.json['description'], request.json['date'], request.json['time'], request.json['location'], request.json['price'], request.json['image'])
+    event = Event_repository(request.json['id'], request.json['title'], request.json['theme'], request.json['description'], request.json['date_time'], request.json['platform'], request.json['access_link'], request.json['id_administrator'])
+    event = event.insert()
     return jsonify(event)
 
 @event_blueprint.route('/event', methods=['GET'])

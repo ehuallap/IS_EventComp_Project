@@ -21,7 +21,7 @@ participant = Participant_repository
 def create_participant():
     if not request.json:
         abort(400)
-    participant = Participant_repository(request.json['name'], request.json['email'], request.json['password'], request.json['event_id'], request.json['universidad'], request.json['ciclo'])
+    participant = Participant_repository(request.json['id'], request.json['name'], request.json['email'], request.json['password'], request.json['universidad'], request.json['ciclo'])
     participant.insert()
     return jsonify(participant)
 

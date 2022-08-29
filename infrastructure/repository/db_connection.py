@@ -1,7 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
+import pymysql
 
 database_name = 'event_manager'
-password = '123456789'
+password = '678670'
 database_path = 'mysql+pymysql://root:{}@localhost:3306/{}'.format(password, database_name)
 
 DbConnection = SQLAlchemy()
