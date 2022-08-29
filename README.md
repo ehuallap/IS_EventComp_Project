@@ -1,9 +1,9 @@
 # EVENTCOMP
-CAMBIAR CONTRASEÑA DE LA BASE DE DATOS EN EL ARCHIVO db_connecion.py
-COMANDO PARA CREAR ENTORNO VIRTUAL: python -m venv project_env
-COMANDO PARA ACTIVAR EL ENTORNO VIRTUAL: .\project_env\Scripts\activate
-PARA INSTALAR LOS REQUISITOS: pip install -r requirements.txt
-PARA LEVANTAR EL SERVIDOR: python app.py
+* CAMBIAR CONTRASEÑA DE LA BASE DE DATOS EN EL ARCHIVO db_connecion.py 
+* COMANDO PARA CREAR ENTORNO VIRTUAL: python -m venv project_env
+* COMANDO PARA ACTIVAR EL ENTORNO VIRTUAL: .\project_env\Scripts\activate
+* PARA INSTALAR LOS REQUISITOS: pip install -r requirements.txt
+* PARA LEVANTAR EL SERVIDOR: python app.py
 
 # practicas de programacion
 * Indentacion consistente

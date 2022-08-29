@@ -19,18 +19,44 @@ class Registered_repository(DbConnection.Model, Registered_person):
         Registered_person.__init__(self, id, name, email, password)
 
     def insert(self):
-        DbConnection.session.add(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.add(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
         
     def update(self):
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
     
     def delete(self):
-        DbConnection.session.delete(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.delete(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
     
     def get(self, id):
-        return DbConnection.session.query(Registered_repository).filter(Registered_repository.id == id).first()
+        try:
+            return DbConnection.session.query(Registered_repository).filter(Registered_repository.id == id).first()
+        except Exception as e:
+            print(e)
+            return None
     
     def getAll(self):
-        return DbConnection.session.query(Registered_repository).all()
+        try:
+            return DbConnection.session.query(Registered_repository).all()
+        except Exception as e:
+            print(e)
+            return None

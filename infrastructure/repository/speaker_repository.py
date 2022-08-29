@@ -19,18 +19,44 @@ class Speaker_repository(DbConnection.Model, Speaker):
         Speaker.__init__(self, id, name, email, password, ac_level, description, especiality, phone)
 
     def insert(self):
-        DbConnection.session.add(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.add(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
         
     def update(self):
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
 
     def delete(self):
-        DbConnection.session.delete(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.delete(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
 
     def get(self, id):
-        return DbConnection.session.query(Speaker_repository).filter(Speaker_repository.id == id).first()
+        try:
+            return DbConnection.session.query(Speaker_repository).filter(Speaker_repository.id == id).first()
+        except Exception as e:
+            print(e)
+            return None
 
     def getAll(self):
-        return DbConnection.session.query(Speaker_repository).all()
+        try:
+            return DbConnection.session.query(Speaker_repository).all()
+        except Exception as e:
+            print(e)
+            return None

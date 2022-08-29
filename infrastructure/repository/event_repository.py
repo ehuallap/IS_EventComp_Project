@@ -23,18 +23,44 @@ class Event_repository(DbConnection.Model, Event):
         Event.__init__(self, id, title, theme, description, date_time, platform, access_link, administrator_id)
 
     def insert(self):
-        DbConnection.session.add(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.add(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
         
     def update(self):
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
 
     def delete(self):
-        DbConnection.session.delete(self)
-        DbConnection.session.commit()
+        try:
+            DbConnection.session.delete(self)
+            DbConnection.session.commit()
+        except Exception as e:
+            print(e)
+            DbConnection.session.rollback()
+            return False
+        return True
 
     def get(self, id):
-        return DbConnection.session.query(Event_repository).filter(Event_repository.id == id).first()
+        try:
+            return DbConnection.session.query(Event_repository).filter(Event_repository.id == id).first()
+        except Exception as e:
+            print(e)
+            return None
 
     def getAll(self):
-        return DbConnection.session.query(Event_repository).all()
+        try:
+            return DbConnection.session.query(Event_repository).all()
+        except Exception as e:
+            print(e)
+            return None
